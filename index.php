@@ -5,15 +5,15 @@ declare(strict_types=1);
  * Telegram URL Expander Bot (safe redirect resolver)
  *
  * 1. Create a bot with @BotFather and copy its token.
- * 2. Put the token below.
- * 3. Host this file on PHP hosting with cURL enabled.
- * 4. Set Telegram webhook to: https://api.telegram.org/botYOUR_TOKEN/setWebhook?url=https://YOUR_HOST/bot.php
+ * 2. Set the BOT_TOKEN environment variable (Railway service Variables tab).
+ * 3. Deploy this app; it needs PHP with the cURL extension.
+ * 4. Set Telegram webhook to: https://api.telegram.org/botYOUR_TOKEN/setWebhook?url=https://YOUR_HOST/
  *
  * This expands ordinary HTTP redirects. It does NOT bypass CAPTCHAs,
  * channel membership checks, login pages, paywalls, or other access controls.
  */
 
-const BOT_TOKEN = 'PASTE_TELEGRAM_BOT_TOKEN_HERE';
+define('BOT_TOKEN', getenv('BOT_TOKEN') ?: '');
 const MAX_REDIRECTS = 10;
 const REQUEST_TIMEOUT = 12;
 
